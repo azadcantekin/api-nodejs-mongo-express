@@ -3,6 +3,7 @@ import http from 'http';
 import mongoose from 'mongoose';
 import {config} from './config/config';
 import Logging from './library/Logging';
+import userRoutes from './routes/User';
 
 const router = express();
 
@@ -39,6 +40,9 @@ const StartServer = () => {
         }
         next();
     });
+
+    router.use('user', userRoutes);
+
     router.get('/ping', (req, res, next) => res.status(200).json({message: 'pong'}));
 
     router.use((req, res, next) => {
