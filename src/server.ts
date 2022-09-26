@@ -41,7 +41,7 @@ const StartServer = () => {
         next();
     });
 
-    router.use('user', userRoutes);
+    router.use('/user', userRoutes);
 
     router.get('/ping', (req, res, next) => res.status(200).json({message: 'pong'}));
 
